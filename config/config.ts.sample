@@ -1,6 +1,6 @@
 import { type ModuleEntry } from "@/lib/config/module-entry";
 
-export const Config: DashboardConfig = {
+export const dashboardConfig: DashboardConfig = {
   units: "metric",
   modules: [
     {

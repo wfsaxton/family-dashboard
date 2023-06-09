@@ -1,6 +1,6 @@
 import React from "react";
 import dynamic from "next/dynamic";
-import { Config } from "@/config/config";
+import { dashboardConfig } from "@/config/config";
 import { type ModuleEntry } from "@/lib/config/module-entry";
 import { type ModuleConfig } from "@/lib/config/module-config";
 import { type ModulePosition } from "@/lib/config/module-position";
@@ -19,7 +19,7 @@ interface ModuleByPosition {
 const loadModules = (): ModuleByPosition => {
   const moduleByPosition: ModuleByPosition = {};
 
-  Config.modules.forEach((entry: ModuleEntry) => {
+  dashboardConfig.modules.forEach((entry: ModuleEntry) => {
     const importedModule = dynamic<ModuleConfig>(
       () => import(`@/modules/${entry.name}/component`)
     );
