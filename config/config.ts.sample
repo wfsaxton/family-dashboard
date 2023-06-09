@@ -10,6 +10,13 @@ export const Config: DashboardConfig = {
         text: "Hello World!",
       },
     },
+    {
+      name: "calendar",
+      position: "top_center",
+      config: {
+        api_key: ""
+      }
+    }
   ],
 };
 

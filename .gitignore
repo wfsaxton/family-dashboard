@@ -40,3 +40,6 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+
+# dashboard config
+config/config.ts
