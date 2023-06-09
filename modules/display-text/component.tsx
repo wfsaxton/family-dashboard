@@ -1,4 +1,4 @@
-import { type ModuleConfig } from "@/lib/module-config";
+import { type ModuleConfig } from "@/lib/config/module-config";
 import React from "react";
 
 interface DisplayTextConfig {

@@ -1,25 +1,13 @@
 import React from "react";
-import { modules as appModules } from "@/config/config";
-import { type ModuleEntry } from "@/lib/module-entry";
 import dynamic from "next/dynamic";
-import { type ModuleConfig } from "@/lib/module-config";
+import { Config } from "@/config/config";
+import { type ModuleEntry } from "@/lib/config/module-entry";
+import { type ModuleConfig } from "@/lib/config/module-config";
+import { type ModulePosition } from "@/lib/config/module-position";
 
 interface LoadedModule {
   name: string;
-  position:
-    | "top_bar"
-    | "top_left"
-    | "top_center"
-    | "top_right"
-    | "upper_third"
-    | "middle_center"
-    | "lower_third"
-    | "bottom_left"
-    | "bottom_center"
-    | "bottom_right"
-    | "bottom_bar"
-    | "fullscreen_above"
-    | "fullscreen_below";
+  position: ModulePosition;
   componentType: React.ComponentType<ModuleConfig>;
   config?: ModuleConfig;
 }
@@ -31,9 +19,9 @@ interface ModuleByPosition {
 const loadModules = (): ModuleByPosition => {
   const moduleByPosition: ModuleByPosition = {};
 
-  appModules.forEach((entry: ModuleEntry) => {
+  Config.modules.forEach((entry: ModuleEntry) => {
     const importedModule = dynamic<ModuleConfig>(
-      () => import(`@/modules/${entry.name}`)
+      () => import(`@/modules/${entry.name}/component`)
     );
     const loadedModule: LoadedModule = {
       name: entry.name,
