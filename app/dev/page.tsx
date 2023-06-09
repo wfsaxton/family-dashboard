@@ -36,7 +36,7 @@ const loadModules = (): ModuleByPosition => {
   return moduleByPosition;
 };
 
-const Home = () => {
+const DevPage = () => {
   const moduleByPosition = loadModules();
   const ModuleTopBar = moduleByPosition["top_bar"]?.componentType;
   const configTopBar = moduleByPosition["top_bar"]?.config;
@@ -48,16 +48,28 @@ const Home = () => {
   return (
     <div className="flex h-full flex-col gap-4 p-4">
       <div className="flex h-1/6">
-        {ModuleTopBar && <ModuleTopBar config={configTopBar} />}
+        {(ModuleTopBar && <ModuleTopBar config={configTopBar} />) || (
+          <div className="flex h-full w-full items-center justify-center rounded-lg bg-fuchsia-500">
+            TOP BAR
+          </div>
+        )}
       </div>
       <div className="flex h-2/3 w-full flex-row gap-4">
-        {ModuleTopCenter && <ModuleTopCenter config={configTopCenter} />}
+        {(ModuleTopCenter && <ModuleTopCenter config={configTopCenter} />) || (
+          <div className="flex h-full w-full items-center justify-center rounded-lg bg-fuchsia-500">
+            TOP CENTER
+          </div>
+        )}
       </div>
-      <div className="flex h-1/6 w-full">
-        {ModuleBottomBar && <ModuleBottomBar config={configBottomBar} />}
+      <div className="flex h-1/6">
+        {(ModuleBottomBar && <ModuleBottomBar config={configBottomBar} />) || (
+          <div className="flex h-full w-full items-center justify-center rounded-lg bg-fuchsia-500">
+            BOTTOM BAR
+          </div>
+        )}
       </div>
     </div>
   );
 };
 
-export default Home;
+export default DevPage;

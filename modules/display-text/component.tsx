@@ -10,7 +10,7 @@ const DisplayText = ({ config }: ModuleConfig) => {
 
   const text = myConfig?.text || "Default text";
 
-  return <div>{text}</div>;
+  return <div className="flex w-full items-center justify-center">{text}</div>;
 };
 
 export default DisplayText;
