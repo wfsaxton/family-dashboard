@@ -1,7 +1,7 @@
 export default function Home() {
   return (
     <main>
-      <h1>Hello world!</h1>
+      <h1>Welcome to the Saxton Family Dashboard</h1>
     </main>
   );
 }
