@@ -8,7 +8,9 @@ interface DisplayTextConfig {
 const DisplayText = ({ config }: ModuleConfig) => {
   const myConfig = config as DisplayTextConfig;
 
-  return <div>{myConfig.text}</div>;
+  const text = myConfig?.text || "Default text";
+
+  return <div>{text}</div>;
 };
 
 export default DisplayText;
