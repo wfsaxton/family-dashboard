@@ -1,11 +1,11 @@
 import React from "react";
 
-interface DisplayTextConfig {
+interface CalendarConfig {
   text?: string;
 }
 
-const DisplayText = ({ text = "Default text" }: DisplayTextConfig) => {
+const Calendar = ({ text = "Default calendar" }: CalendarConfig) => {
   return <div className="flex w-full items-center justify-center">{text}</div>;
 };
 
-export default DisplayText;
+export default Calendar;
