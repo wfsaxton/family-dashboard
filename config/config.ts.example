@@ -14,3 +14,10 @@ export const calendarConfigs: CalendarConfig[] = [
     isParent: false,
   },
 ];
+
+export const todolistConfigs: TodolistConfig[] = [
+  {
+    assigneeId: 12345678,
+    assigneeName: "Jane",
+  },
+];
