@@ -1,0 +1,16 @@
+import { type CalendarConfig } from "@/modules/calendar/types";
+
+export const calendarConfigs: CalendarConfig[] = [
+  {
+    id: "dadsemail@gmail.com",
+    name: "Dad",
+    color: "bg-green-500",
+    isParent: true,
+  },
+  {
+    id: "kidsemail@gmail.com",
+    name: "Jane",
+    color: "bg-purple-500",
+    isParent: false,
+  },
+];
