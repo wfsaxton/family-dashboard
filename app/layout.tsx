@@ -18,7 +18,7 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <body className={inter.className}>
-          <div className="h-screen w-screen">{children}</div>
+          <div className="h-screen w-screen bg-primary text-primary-foreground">{children}</div>
         </body>
       </html>
     </ClerkProvider>

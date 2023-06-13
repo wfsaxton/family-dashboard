@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button";
 import { type CalendarConfig } from "./types";
 
 type CalendarToggleProps = {
@@ -12,24 +13,16 @@ const CalendarToggle = ({
   toggleVisibility,
   ...props
 }: CalendarToggleProps) => {
-
   return (
-    <div
-      className={`flex h-full rounded-lg border-2 border-white p-4 justify-center ${calendarConfig.color}`}
+    <Button
+      className={`${checked ? calendarConfig.color : "bg-black"} border-2`}
+      onClick={() => {
+        toggleVisibility && toggleVisibility(calendarConfig.id);
+      }}
+      {...props}
     >
-      <label className="inline-flex items-center gap-4">
-        <input
-          className="h-10 w-10 rounded-md border-2 accent-white"
-          type="checkbox"
-          checked={checked ? checked : false}
-          onChange={() => {
-            toggleVisibility && toggleVisibility(calendarConfig.id);
-          }}
-          {...props}
-        />
-        <span className="text-4xl">{calendarConfig.name}</span>
-      </label>
-    </div>
+      <span className="text-4xl">{calendarConfig.name}</span>
+    </Button>
   );
 };
 export default CalendarToggle;
