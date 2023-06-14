@@ -4,7 +4,6 @@ import React, { useEffect, useState } from "react";
 import { type Event, type DayOfEvents, type CalendarConfig } from "./types";
 import dayjs from "dayjs";
 import CalendarToggle from "./calendar-toggle";
-import { cloudtasks } from "googleapis/build/src/apis/cloudtasks";
 
 type CalendarClientProps = {
   calendarConfigs: CalendarConfig[];
