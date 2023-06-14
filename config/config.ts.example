@@ -19,5 +19,6 @@ export const todolistConfigs: TodolistConfig[] = [
   {
     assigneeId: 12345678,
     assigneeName: "Jane",
+    color: "bg-purple-500",
   },
 ];
