@@ -1,12 +1,12 @@
-import dayjs, { type Dayjs } from 'dayjs';
-import { google, type Auth, type calendar_v3 } from 'googleapis';
-import React from 'react';
+import dayjs, { type Dayjs } from "dayjs";
+import { google, type Auth, type calendar_v3 } from "googleapis";
+import React from "react";
 
-import { calendarConfigs } from '@/config/config';
-import { auth, clerkClient, SignIn, SignInButton } from '@clerk/nextjs';
+import { calendarConfigs } from "@/config/config";
+import { auth, clerkClient, SignIn, SignInButton } from "@clerk/nextjs";
 
-import CalendarClient from './calendar-client';
-import { type CalendarConfig, type DayOfEvents, type Event } from './types';
+import CalendarClient from "./calendar-client";
+import { type CalendarConfig, type DayOfEvents, type Event } from "./types";
 
 const getGoogle0Auth2Client = async () => {
   const { userId } = auth();
@@ -123,8 +123,8 @@ const Calendar = async () => {
 
         const day = dayjs(event.start).day();
 
-        if (!day) {
-          console.log("Invalid day: ", event.summary);
+        if (day < -1 || day > 6) {
+          console.log("Invalid day: ", day, event.summary);
           continue;
         }
 
