@@ -48,8 +48,8 @@ const CalendarClient = ({
           return (
             <div
               key={dayOfEvents.day}
-              className={`flex h-full flex-col gap-2 rounded-lg border-2 p-2 text-center ${
-                index !== dayOfTheWeek ? "border-white" : "border-orange-400"
+              className={`flex h-full flex-col gap-2 rounded-lg p-2 text-center ${
+                index !== dayOfTheWeek ? "border-white border-2" : "border-orange-400 border-4"
               }`}
             >
               <div className="flex flex-col gap-2">
