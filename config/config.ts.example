@@ -1,4 +1,6 @@
 import { type CalendarConfig } from "@/modules/calendar/types";
+import { type ClockConfig } from "@/modules/clock/types";
+import { type TodolistConfig } from "@/modules/todolist/types";
 
 export const calendarConfigs: CalendarConfig[] = [
   {
@@ -22,3 +24,7 @@ export const todolistConfigs: TodolistConfig[] = [
     color: "bg-purple-500",
   },
 ];
+
+export const clockConfig: ClockConfig = {
+  refreshInterval: 60000,
+}

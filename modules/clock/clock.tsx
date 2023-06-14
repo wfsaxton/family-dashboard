@@ -2,6 +2,7 @@
 
 import dayjs from "dayjs";
 import React, { useEffect, useState } from "react";
+import { clockConfig } from "@/config/config";
 
 const Clock = () => {
   // today is unused, but it's needed to trigger the useEffect
@@ -11,7 +12,7 @@ const Clock = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       setDate(new Date());
-    }, 950);
+    }, clockConfig.refreshInterval);
     return () => {
       clearInterval(timer);
     };
