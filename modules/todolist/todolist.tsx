@@ -1,17 +1,17 @@
 import { todolistConfigs } from "@/config/config";
 import { TodoistApi } from "@doist/todoist-api-typescript";
 import React from "react";
+import TodolistDisplay from "./todolist-display";
 import { type TodolistAssigneeTasksList, type TodolistTask } from "./types";
-import TodolistClient from "./todolist-client";
 
 const Todolist = async () => {
-  const api_key = process.env.TODOIST_API_KEY;
+  const api_key = process.env.NEXT_PUBLIC_TODOIST_API_KEY;
 
   if (!api_key) {
     return <div>Todoist API key not found</div>;
   }
 
-  const api = new TodoistApi(api_key); //{ projectId: "2314533277" }
+  const api = new TodoistApi(api_key);
 
   const todoistTasks = await api.getTasks({ filter: "#Chores & today" });
 
@@ -54,7 +54,7 @@ const Todolist = async () => {
   }
 
   return (
-    <TodolistClient todolistAssigneeTaskLists={todolistAssigneeTasksLists} />
+    <TodolistDisplay todolistAssigneeTaskLists={todolistAssigneeTasksLists} />
   );
 };
 

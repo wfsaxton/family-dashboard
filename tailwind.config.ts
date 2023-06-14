@@ -3,10 +3,11 @@ import { type Config } from "tailwindcss";
 export default {
   darkMode: ["class"],
   content: [
-    './app/**/*.{ts,tsx}',
-    './modules/**/*.{ts,tsx}',
-    './config/**/*.{ts,tsx}',
-	],
+    "./app/**/*.{ts,tsx}",
+    "./modules/**/*.{ts,tsx}",
+    "./config/**/*.{ts,tsx}",
+    "components/**/*.{ts,tsx}",
+  ],
   theme: {
     container: {
       center: true,
@@ -67,7 +68,7 @@ export default {
         },
         "accordion-up": {
           from: { height: "var(--radix-accordion-content-height)" },
-          to: { height: "0" },// Put quotes around this
+          to: { height: "0" }, // Put quotes around this
         },
       },
       animation: {
