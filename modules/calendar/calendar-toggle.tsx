@@ -15,7 +15,9 @@ const CalendarToggle = ({
 }: CalendarToggleProps) => {
   return (
     <Button
-      className={`${checked ? calendarConfig.color : "bg-black"} border-2`}
+      className={`${
+        checked ? calendarConfig.color : "bg-black"
+      } border-2 hover:${checked ? calendarConfig.color : "bg-black"}"}`}
       onClick={() => {
         toggleVisibility && toggleVisibility(calendarConfig.id);
       }}
