@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { type Event, type DayOfEvents, type CalendarConfig } from "./types";
 import dayjs from "dayjs";
 import CalendarToggle from "./calendar-toggle";
+import { cloudtasks } from "googleapis/build/src/apis/cloudtasks";
 
 type CalendarClientProps = {
   calendarConfigs: CalendarConfig[];
@@ -21,7 +22,10 @@ const CalendarClient = ({
   useEffect(() => {
     const initialCalendarToggles = new Map<string, boolean>();
     for (const calendarConfig of calendarConfigs) {
-      initialCalendarToggles.set(calendarConfig.id, calendarConfig.isInitiallyDisplayed);
+      initialCalendarToggles.set(
+        calendarConfig.id,
+        calendarConfig.isInitiallyDisplayed
+      );
     }
     setCalendarToggles(initialCalendarToggles);
   }, [calendarConfigs]);
@@ -35,14 +39,18 @@ const CalendarClient = ({
     });
   };
 
+  const dayOfTheWeek = dayjs().day();
+
   return (
     <div className="flex w-full flex-col items-center justify-center gap-4 p-2">
       <div className="grid h-full w-full grid-cols-7 gap-4">
-        {weekOfDaysOfEvents.map((dayOfEvents: DayOfEvents) => {
+        {weekOfDaysOfEvents.map((dayOfEvents: DayOfEvents, index) => {
           return (
             <div
               key={dayOfEvents.day}
-              className="flex h-full flex-col gap-2 rounded-lg border-2 border-white p-2 text-center"
+              className={`flex h-full flex-col gap-2 rounded-lg border-2 p-2 text-center ${
+                index !== dayOfTheWeek ? "border-white" : "border-orange-400"
+              }`}
             >
               <div className="flex flex-col gap-2">
                 <div className="text-2xl">{dayOfEvents.day}</div>
@@ -54,7 +62,10 @@ const CalendarClient = ({
                         className={`w-full rounded-md ${event.color} p-1 text-left`}
                       >
                         <div>{event.summary}</div>
-                        <div>{dayjs(event.start).format("h:mm A")} - {dayjs(event.end).format("h:mm A")}</div>
+                        <div>
+                          {dayjs(event.start).format("h:mm A")} -{" "}
+                          {dayjs(event.end).format("h:mm A")}
+                        </div>
                       </div>
                     );
                   }
@@ -64,7 +75,7 @@ const CalendarClient = ({
           );
         })}
       </div>
-      <div className="grid h-1/8 w-full grid-cols-6 gap-4">
+      <div className="h-1/8 grid w-full grid-cols-6 gap-4">
         {calendarConfigs.map((calendarConfig: CalendarConfig) => {
           return (
             <CalendarToggle
