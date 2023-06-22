@@ -11,9 +11,10 @@ const Clock = () => {
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setDateFormatted(dayjs().format("dddd, MMMM D, YYYY"));
-      setTimeFormatted(dayjs().format("HH:mm"));
-      setSecondsFormatted(dayjs().format("ss"));
+      const now = dayjs();
+      setDateFormatted(now.format("dddd, MMMM D, YYYY"));
+      setTimeFormatted(now.format("HH:mm"));
+      setSecondsFormatted(now.format("ss"));
     }, clockConfig.refreshInterval);
     return () => {
       clearInterval(timer);
