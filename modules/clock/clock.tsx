@@ -5,27 +5,27 @@ import React, { useEffect, useState } from "react";
 import { clockConfig } from "@/config/config";
 
 const Clock = () => {
-  // today is unused, but it's needed to trigger the useEffect
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [today, setDate] = useState(new Date());
+  const [dateFormatted, setDateFormatted] = useState("");
+  const [timeFormatted, setTimeFormatted] = useState("");
+  const [secondsFormatted, setSecondsFormatted] = useState("");
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setDate(new Date());
+      setDateFormatted(dayjs().format("dddd, MMMM D, YYYY"));
+      setTimeFormatted(dayjs().format("HH:mm"));
+      setSecondsFormatted(dayjs().format("ss"));
     }, clockConfig.refreshInterval);
     return () => {
       clearInterval(timer);
     };
   }, []);
 
-  const now = dayjs();
-
   return (
-    <div className="flex flex-col gap-2 items-center w-full">
-      <div className="text-2xl">{now.format("dddd, MMMM D, YYYY")}</div>
-      <div className="flex flex-row gap-2">
-        <div className="text-8xl">{now.format("HH:mm")}</div>
-        <div className="text-3xl text-gray-500">{now.format("ss")}</div>
+    <div className="flex w-full flex-col items-center gap-2">
+      <div className="text-2xl w-full">{dateFormatted}</div>
+      <div className="flex flex-row gap-2 w-full">
+        <div className="text-8xl w-7/8">{timeFormatted}</div>
+        <div className="text-3xl text-gray-500 w-1/8">{secondsFormatted}</div>
       </div>
     </div>
   );
