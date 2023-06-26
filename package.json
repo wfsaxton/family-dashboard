@@ -6,7 +6,7 @@
     "build": "next build",
     "dev": "next dev",
     "lint": "next lint",
-    "start": "next start"
+    "start": "/usr/bin/chromium-browser --load-extension='installer/virtual-keyboard-extension' --noerrdialogs --disable-infobars --kiosk http://localhost:3000 & next start"
   },
   "dependencies": {
     "@clerk/nextjs": "^4.20.0",
