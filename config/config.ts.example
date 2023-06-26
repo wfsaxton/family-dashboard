@@ -8,18 +8,20 @@ export const calendarConfigs: CalendarConfig[] = [
     name: "Dad",
     color: "bg-green-500",
     isParent: true,
+    isInitiallyDisplayed: true,
   },
   {
     id: "kidsemail@gmail.com",
     name: "Jane",
     color: "bg-purple-500",
     isParent: false,
+    isInitiallyDisplayed: true,
   },
 ];
 
 export const todolistConfigs: TodolistConfig[] = [
   {
-    assigneeId: 12345678,
+    assigneeId: "12345678",
     assigneeName: "Jane",
     color: "bg-purple-500",
   },
