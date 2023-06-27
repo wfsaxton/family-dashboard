@@ -8,6 +8,13 @@ If you don't have a config yet, use the example one
 $ cp config/config.ts.sample config/config.ts
 ```
 
+Fill out the mandatory environment variables
+```
+$ cp env.example env.local
+$ vi env.local
+## Make edits ##
+```
+
 Then install nvm, node v20, npm, and build and run project
 
 ```
